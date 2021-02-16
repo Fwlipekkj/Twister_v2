@@ -18,5 +18,8 @@ module TwisterV2
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], expires_in: 1.hour }
+    config.action_controller.perform_caching = true
+
   end
 end

@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.find_or_create_by(name:"Felipe", nickname:"fefe", email:"felipe@gmail.com", password:"102030fefe")
+
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)
+post = Post.find_or_create_by(message:Faker::Lorem.sentence, user:user)

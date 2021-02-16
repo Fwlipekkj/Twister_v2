@@ -28,7 +28,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.3, RVM: ruby-3.0.0 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.9, RVM: ruby-3.0.0 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.3, RVM: ruby-3.0.0 [global]) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
