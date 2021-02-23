@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, only:[:index]
+  get 'cadastro/index'
+  resources :posts, only:[:index, :create]
   root to: redirect("/posts")
 end
