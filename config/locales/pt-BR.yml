@@ -1,0 +1,4 @@
+pt-BR:
+  errors:
+    messages:
+      email_format: O e-mail não é válido

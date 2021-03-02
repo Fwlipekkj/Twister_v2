@@ -18,6 +18,12 @@ module TwisterV2
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = 'Brasilia'
+    config.i18n.default_locale = 'pt-BR'
+    config.active_record.default_timezone = :local
+
+    config.i18n.available_locales = ['pt-BR', :de]
+
     config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], expires_in: 1.hour }
     config.action_controller.perform_caching = true
 
