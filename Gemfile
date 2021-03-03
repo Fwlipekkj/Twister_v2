@@ -10,6 +10,7 @@ gem 'puma', '~> 5.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'redis'
 gem 'jbuilder', '~> 2.7'
+gem 'bcrypt'
 
 # assets and js
 gem 'sass-rails', '>= 6'

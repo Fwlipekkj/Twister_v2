@@ -14,10 +14,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user = User.first
+    @post.user = current_user
 
     if !@post.save
-      flash[:error] = "Erro ao cadastrar o Post"
+      flash[:error] = "Não foi possivel salvar o Post."
     end
 
     redirect_to posts_path

@@ -7,6 +7,9 @@
 # Ignore Rubymine files
 .idea/*
 
+# Ignore Mac files
+.DS_Store
+
 # Ignore bundler config.
 /.bundle
 

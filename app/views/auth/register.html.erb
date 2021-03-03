@@ -5,7 +5,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Crie sua conta</h5>
       </div>
-      <%= form_for @user, url: users_path, method: :post, html: {class: ""} do |form| %>
+      <%= form_for @user, url: user_register_path, method: :post, html: {class: ""} do |form| %>
         <div class="modal-body">
           <div class="form-group">
             <%= form.text_field :name, class: "form-control #{bootstrap_form_error_class(form, :name)}", placeholder: "Nome" %>
@@ -26,8 +26,10 @@
           </div>
         </div>
         <div class="modal-footer">
-          <%= link_to "Fazer Login", posts_path, class: "btn btn-link" %>
-          <%= form.submit "Criar conta", class: "btn btn-primary" %>
+          <div class="row">
+              <%= link_to "Faça o login e divirta-se", posts_path, class: "btn btn-link" %>
+              <%= form.submit "Criar conta", class: "btn btn-primary" %>
+          </div>
         </div>
       <% end %>
     </div>

@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   # Posts
   resources :posts, only:[:index, :create]
 
-  # Users
-  resources :users, only:[:index, :create]
-  get "/registration", controller: "users", action: "new", as: "user_registration"
+  # Auth
+  get "/register", to: "auth#register", as: "user_register"
+  post "/register", to: "auth#post_register"
+  get "/login", to: "auth#login", as: "user_login"
+  post "/login", to: "auth#post_login"
+  delete "/logout", to: "auth#logout", as: "user_logout"
 end
 

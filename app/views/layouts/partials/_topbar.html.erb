@@ -1,16 +1,23 @@
 <div id="twister-topbar">
 
-  <nav class="navbar navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><%= image_tag("logo/logo2.png", width: '120px') %></a>
+  <nav class="navbar navbar-expand navbar-dark">
+    <a class="navbar-brand" href="<%= posts_path %>"><%= image_tag("logo/logo2.png", width: '120px') %></a>
 
-      <form class="d-flex">
-        <a class="navbar-brand" href="#"><%= image_tag("logo/+2.png", width: '30px') %></a>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-
-    </div>
+    <ul class="nav navbar-nav ml-auto">
+      <% if logged_in? %>
+        <li class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+            Olá, <%= current_user.name %> <b class="caret"></b>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Dados pessoais</a>
+            <a class="dropdown-item" href="#">Preferências</a>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Sair", user_logout_path, class: "dropdown-item", method: :delete %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </nav>
 
 </div>
