@@ -1,13 +1,25 @@
 class PostsController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @posts = Post.page(params[:page]).per(8).reorder(created_at: :desc)
+    @pagy, @posts = pagy(Post.all.order(created_at: :desc), items: 10)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: "posts", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
+    end
   end
 
   def create
-    @post = Post.new(**post_params, user: User.first)
+    @post = Post.new(post_params)
+    @post.user = User.first
+
     if !@post.save
-      flash[:error] = "O post não foi salvo"
+      flash[:error] = "Erro ao cadastrar o Post"
     end
+
     redirect_to posts_path
   end
 

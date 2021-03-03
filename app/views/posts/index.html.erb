@@ -1,22 +1,20 @@
-<%= form_for :post, url: posts_path, method: :post, html: {class: "mb-5"} do |form| %>
-  <div class="form-group">
-    <%= form.text_area :message, class: "form-control", placeholder: "O que você está pensando?" %>
-  </div>
-
-  <%= form.submit "Postar", class: "btn btn-primary" %>
-<% end %>
-
-  <% @posts.each do |post| %>
-  <div class="card">
-    <div class="card-body">
-<!--      <h5 class="card-title">Card title</h5>-->
-      <h6 class="card-subtitle mb-2 text-muted"><%= post.user.nickname %></h6>
-      <p class="card-text"><%= post.message %></p>
-      <small class="text-muted"><%= post.created_at %></small>
-<!--      <a href="#" class="card-link">Card link</a>-->
-<!--      <a href="#" class="card-link">Another link</a>-->
+<!-- form to create post -->
+<div class="sticky-top pb-5 pt-5" style="top:68px; z-index: 99; background-color: white;">
+  <%= form_for :post, url: posts_path, method: :post, html: {class: ""} do |form| %>
+    <div class="form-group">
+      <%= form.text_area :message, class: "form-control", placeholder: "No que você está pensando?" %>
     </div>
-  </div>
-<% end %>
+    <%= form.submit "Postar", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-<%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+<!-- render posts -->
+<div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+  <div data-target="infinite-scroll.entries">
+    <%= render "posts" %>
+  </div>
+
+  <div data-target="infinite-scroll.pagination">
+    <%== pagy_nav @pagy %>
+  </div>
+</div>

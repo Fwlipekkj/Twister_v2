@@ -5,12 +5,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "Usuário cadastrado com sucesso!"
-      return redirect_to root_path
+
+    if !@user.save
+      # flash[:error] = "Erro ao cadastrar o Usuário"
+      return render :new
     end
-    # flash[:error] = "Erro ao cadastrar o Usuário"
-    render :new
+
+    flash[:success] = "Usuário cadastrado com sucesso!"
+    redirect_to root_path
   end
 
   def user_params

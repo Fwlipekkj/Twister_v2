@@ -12,24 +12,20 @@
 
 <body>
 
-<!--  Top Bar  -->
-<%= render "layouts/partials/topbar" %>
+<!-- Left -->
+<%= render "layouts/partials/sidebar" %>
 
-<div class="d-flex" id="wrapper">
+<!-- Main -->
+<div id="twister-main">
+  <%= render "layouts/partials/topbar" %>
+  <%= render "layouts/partials/flash_messages" %>
 
-  <!-- Sidebar -->
-  <%= render "layouts/partials/sidebar" %>
-
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <%= render "layouts/partials/flash_messages" %>
-      <%= yield %>
-
-    </div>
+  <div class="container">
+    <%= yield %>
   </div>
 </div>
 
+<!-- Footer -->
 
 </body>
 </html>
