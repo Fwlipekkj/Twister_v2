@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout 'authentication'
+
   def new
     @user = User.new
   end
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
     end
 
     flash[:success] = "Usuário cadastrado com sucesso!"
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   def user_params

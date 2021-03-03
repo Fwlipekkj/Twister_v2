@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TwisterV2</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<!-- Main -->
+<div id="twister-authentication">
+  <div class="container">
+    <%= render "layouts/partials/flash_messages" %>
+    <%= yield %>
+  </div>
+</div>
+
+<!-- Footer -->
+
+</body>
+</html>

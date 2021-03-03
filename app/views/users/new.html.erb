@@ -1,12 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="register_modal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
-<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--          <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
+        <h5 class="modal-title" id="exampleModalLabel">Crie sua conta</h5>
       </div>
       <%= form_for @user, url: users_path, method: :post, html: {class: ""} do |form| %>
         <div class="modal-body">
@@ -29,7 +26,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <%= form.submit "Cadastrar", class: "btn btn-primary" %>
+          <%= link_to "Fazer Login", posts_path, class: "btn btn-link" %>
+          <%= form.submit "Criar conta", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
