@@ -6,17 +6,13 @@
   <%= form.submit "Postar", class: "btn btn-primary" %>
 <% end %>
 
-  <% @posts.each do |post| %>
-  <div class="card">
-    <div class="card-body">
-<!--      <h5 class="card-title">Card title</h5>-->
-      <h6 class="card-subtitle mb-2 text-muted"><%= post.user.nickname %></h6>
-      <p class="card-text"><%= post.message %></p>
-      <small class="text-muted"><%= post.created_at %></small>
-<!--      <a href="#" class="card-link">Card link</a>-->
-<!--      <a href="#" class="card-link">Another link</a>-->
-    </div>
+<!-- render posts -->
+<div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+  <div data-infinite-scroll-target="entries">
+    <%= render "posts" %>
   </div>
-<% end %>
 
-<%= paginate @posts, theme: 'twitter-bootstrap-4' %>
+  <div data-infinite-scroll-target="pagination" class="d-none">
+    <%== pagy_nav @pagy %>
+  </div>
+</div>

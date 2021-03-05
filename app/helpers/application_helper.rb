@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def bootstrap_alert_class(type)
     case type.to_s
     when "error" then "danger"
