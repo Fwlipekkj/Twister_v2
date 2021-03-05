@@ -4,11 +4,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(**post_params, user: User.first)
-    if !@post.save
-      flash[:error] = "O post não foi salvo"
+    @post = Post.new(post_params)
+    @post.user = current_user
+
+    unless @post.save
+      flash[:error] = "Não foi possivel salvar o Post."
     end
+
     redirect_to posts_path
+
   end
 
   private
