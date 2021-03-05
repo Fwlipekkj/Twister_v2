@@ -2,3 +2,11 @@ pt-BR:
   errors:
     messages:
       email_format: O e-mail não é válido
+  faker:
+    lorem:
+      # emoji code stored in bytes
+      multibyte: [ [ 240, 159, 152, 128 ] , [ 240, 159, 152, 161 ], [ 226, 157, 164 ] ]
+      punctuation:
+        space: ' '
+        period: '.'
+        question_mark: '?'

@@ -10,10 +10,10 @@ gem 'puma', '~> 5.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
-gem 'turbolinks', '~> 5'
+
 gem 'bcrypt'
-gem 'kaminari'
-gem 'bootstrap4-kaminari-views'
+gem 'hotwire-rails', '~> 0.1.3'
+gem 'pagy', '~> 3.7'
 gem 'jbuilder', '~> 2.7'
 gem 'redis'
 gem 'bootsnap', '>= 1.4.4', require: false

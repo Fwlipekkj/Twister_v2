@@ -1,6 +1,19 @@
 class PostsController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @posts = Post.page(params[:page]).per(8).reorder(created_at: :desc)
+    @pagy, @posts = pagy(Post.all.order(created_at: :desc), items: 10)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {
+          entries: render_to_string(partial: "posts", formats: [:html]),
+          pagination: view_context.pagy_nav(@pagy)
+        }
+      }
+    end
+
   end
 
   def create
