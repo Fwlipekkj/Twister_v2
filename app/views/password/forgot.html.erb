@@ -1,0 +1,29 @@
+<!-- Modal -->
+<div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recuperar senha</h5>
+        <!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+        <!--          <span aria-hidden="true">&times;</span>-->
+        <!--        </button>-->
+      </div>
+      <%= form_with scope: :user, url: recovery_password_path, method: :post, html: {class: ""} do |form| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= form.text_field :email, class: "form-control", placeholder: "E-mail"  %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= link_to "Cadastre-se aqui", user_register_path, class: "btn btn-link" %>
+          <%= form.submit "Recuperar Senha", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $("#register_modal").modal("toggle")
+    })
+</script>

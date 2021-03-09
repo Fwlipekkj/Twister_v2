@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   get "/login", to: "session#login", as: "user_login"
   post "/login", to: "session#make_login"
   delete "/logout", to: "session#logout", as: "user_logout"
+  get "/forgot", to: "password#forgot", as: "forgot_password"
+  post "/recovery", to: "password#recovery", as: "recovery_password"
 end
 
