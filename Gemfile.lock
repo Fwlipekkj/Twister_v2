@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 3b4d4342e7b394fc69c9783193f2d911255d3768
+  revision: 677ac8fd96213a188a5512cf3aa78c89f1fcda91
   branch: master
   specs:
     faker (2.16.0)
@@ -91,7 +91,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
-    ffi (1.14.2)
+    ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hotwire-rails (0.1.3)
