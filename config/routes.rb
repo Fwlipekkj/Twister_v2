@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "session#logout", as: "user_logout"
   get "/forgot", to: "password#forgot", as: "forgot_password"
   post "/recovery", to: "password#recovery", as: "recovery_password"
+  get "/reset", to: "password#reset", as: "reset_password"
+  post "/reset", to: "password#make_reset"
+  get "/recovery", to: "password#recovery_sent", as: "recovery_sent"
 end
 
