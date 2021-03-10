@@ -15,17 +15,25 @@ module TwisterV2
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
+
+    # Eager load paths
     # config.eager_load_paths << Rails.root.join("extras")
-    config.time_zone = 'Brasilia'
+
+    # Locale and Timezone
     config.i18n.default_locale = 'pt-BR'
+    config.i18n.available_locales = ['pt-BR']
+    config.time_zone = 'Brasilia'
     config.active_record.default_timezone = :local
 
-    config.i18n.available_locales = ['pt-BR']
-
+    # Rails Cache Store
     config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], expires_in: 1.hour }
     config.action_controller.perform_caching = true
 
+    # Active Storage
+    config.active_storage.service = :amazon
+
+    # Active View
+    # turn off remote submit in 'form_with'
+    config.action_view.form_with_generates_remote_forms = false
   end
 end
