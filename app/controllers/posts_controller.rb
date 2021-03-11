@@ -13,23 +13,22 @@ class PostsController < ApplicationController
         }
       }
     end
-
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-
-    unless @post.save
-      flash[:error] = "Não foi possivel salvar o Post."
-    end
+    @post.save!
+  rescue => exception
+    flash[:error] = exception.message
+  ensure
 
     redirect_to posts_path
-
   end
+
 
   private
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :media)
   end
 end

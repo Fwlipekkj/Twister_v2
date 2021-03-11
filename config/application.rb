@@ -2,8 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+#Require
 Bundler.require(*Rails.groups)
 
 module TwisterV2
@@ -24,27 +23,33 @@ module TwisterV2
     config.time_zone = 'Brasilia'
     config.i18n.default_locale = 'pt-BR'
     config.active_record.default_timezone = :local
-
     config.i18n.available_locales = ['pt-BR']
 
+
+    #Cache
     config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], expires_in: 1.hour }
     config.action_controller.perform_caching = true
 
+
+    #E-Mail
     config.action_mailer.delivery_method = :smtp
-    host = default_url_options[:host] #replace with your own url
+    host = default_url_options[:host]
     config.action_mailer.default_url_options = { host: host }
 
-    # SMTP settings for gmail
+    # SMTP settings
     config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :user_name            => "softwaretwister@gmail.com",
-      :password             => "PASSword123",
+      :password             => ENV['EMAIL_PASSWORD'],
       :authentication       => "plain",
       :enable_starttls_auto => true
     }
 
+    #Active View
     config.action_view.form_with_generates_remote_forms = false
 
+    #Active Storage
+    config.active_storage.service = :amazon
   end
 end
