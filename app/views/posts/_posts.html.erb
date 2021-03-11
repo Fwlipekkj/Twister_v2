@@ -1,9 +1,36 @@
+<%# @posts.each do |post| %>
+<!--  <div class="card mb-4">-->
+<!--    <div class="card-body">-->
+<!--      <h6 class="card-subtitle mb-2 text-muted"><%#= post.user.nickname %></h6>-->
+<!--      <p class="card-text"><%#= post.message %></p>-->
+<!--      <small class="text-muted"><%#= post.created_at %></small>-->
+<!--    </div>-->
+<!--  </div>-->
+<%# end %>
+
 <% @posts.each do |post| %>
   <div class="card mb-4">
+
     <div class="card-body">
-      <h6 class="card-subtitle mb-2 text-muted"><%= post.user.nickname %></h6>
+      <h6 class="card-title">
+        <a href="#">
+          <img src="https://loremflickr.com/54/54/face/all" alt="" class="rounded-circle" width="34">
+          <%= post.user.nickname %>
+        </a>
+        <small class="float-right text-muted"><%= post.created_at_formated %></small>
+      </h6>
       <p class="card-text"><%= post.message %></p>
-      <small class="text-muted"><%= post.created_at %></small>
+      <% if post.media.attached? %>
+        <img src="<%= post_media_url(post.media) %>" alt="" class="img-thumbnail">
+      <% end %>
+    </div>
+
+    <div class="card-footer text-right">
+      <small>
+        <a href="">curtir</a> |
+        <a href="">compartilhar</a> |
+        <a href="">comentários</a>
+      </small>
     </div>
   </div>
 <% end %>
