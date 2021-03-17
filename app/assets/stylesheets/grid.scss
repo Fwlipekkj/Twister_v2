@@ -1,0 +1,90 @@
+// -------------------------------------------------
+//   Mobile
+// -------------------------------------------------
+.grid.wrapper {
+  display: grid;
+  height: 100vh;
+
+  grid-template-rows: auto auto 1fr auto auto auto;
+  gap: 24px;
+
+  padding-top: 80px;
+}
+
+
+// -------------------------------------------------
+//   Tablet
+// -------------------------------------------------
+@media (min-width: 768px) {
+  .grid.wrapper {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  // The header section takes 12 columns
+  .grid .header {
+    grid-column: 1 / span 12;
+  }
+
+  // The navigation section also takes 12 columns
+  .grid .navigation {
+    grid-column: 1 / span 12;
+  }
+
+  // The main section takes 10 columns start from column 3
+  .grid .main {
+    grid-column: 3 / span 10;
+  }
+
+  // The sidebar takes 2 columns start from column 1
+  .grid .sidebar {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+
+  // The ads section takes 2 columns start from column 1
+  .grid .ads {
+    grid-column: 1 / span 2;
+  }
+
+  // The footer section takes 10 columns start from column 3
+  .grid .footer {
+    grid-column: 3 / span 10;
+  }
+}
+
+
+// -------------------------------------------------
+//   Desktop
+// -------------------------------------------------
+@media (min-width: 992px) {
+  .grid.wrapper {
+  }
+
+  // The navigation takes 8 columns starting from column 3
+  .grid .navigation {
+    grid-column: 3 / span 8;
+  }
+
+  // The main section takes 8 columns starting from column 3
+  .grid .main {
+    grid-column: 3 / span 8;
+  }
+
+  // The sidebar starts from row 2 and ends at row 4
+  .grid .sidebar {
+    grid-row: 2 / 4
+  }
+
+  // The ads section takes 2 columns starting from column 11
+  // it also takes 2 rows starting from row 2 and ending at row 4
+  .grid .ads {
+    grid-column: 11 / span 2;
+    grid-row: 2 / 4;
+  }
+
+  // The footer section takes 12 columns start from column 1
+  .grid .footer {
+    grid-column: 1 / span 12;
+  }
+}

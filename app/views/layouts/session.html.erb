@@ -12,18 +12,26 @@
 
 <body>
 
-<div class="d-flex" id="wrapper">
+  <div class="container" >
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6 col-md-8">
 
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <%= render "layouts/partials/flash_messages" %>
-      <%= yield %>
+        <!--logo-->
+        <div class="d-flex justify-content-center align-items-center my-5">
+          <%= image_tag("logo/logo2.png", width: '120px') %>
+        </div>
 
+        <%= render "layouts/partials/flash_messages" %>
+        <%= yield %>
+
+        <!--after-->
+        <div class="d-flex justify-content-center align-items-center mt-5">
+          <%= content_for?(:after_content) ? yield(:after_content) : yield %>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
-
 
 </body>
 </html>

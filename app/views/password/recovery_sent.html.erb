@@ -1,24 +1,23 @@
-<!-- Modal -->
-<div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Recuperar senha</h5>
-        <!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-        <!--          <span aria-hidden="true">&times;</span>-->
-        <!--        </button>-->
-      </div>
-        <div class="modal-body">
-          <p>O E-mail para a recuperação de senha foi enviado com sucesso. Acesse seu E-mail para continuar com o processo de recuperação de senha.</p>
-        </div>
-        <div class="modal-footer">
-          <%= link_to "Fazer o login", user_login_path, class: "btn btn-link" %>
-        </div>
-    </div>
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title"><strong>Recuperar senha</strong></h4>
   </div>
+
+  <%= form_with scope: :user, url: recovery_password_path, method: :post, html: {class: ""} do |form| %>
+    <div class="card-body">
+      <p class="text-info">
+        Acesse seu email e siga o link para continuar com a recuperação de senha.
+      </p>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-end">
+        <%= link_to "Continuar", user_login_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-<script type="application/javascript">
-    $(document).ready(function(){
-        $("#register_modal").modal("toggle")
-    })
-</script>
+
+<% content_for(:after_content) do %>
+  Já tem conta?
+  <%= link_to "Ir para o login", user_login_path, class: "btn btn-link" %>
+<% end %>

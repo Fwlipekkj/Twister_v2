@@ -12,24 +12,31 @@
 
 <body>
 
-<!--  Top Bar  -->
-<%= render "layouts/partials/topbar" %>
+<div class="grid wrapper">
 
-<div class="d-flex" id="wrapper">
+  <%= render "layouts/partials/topbar" %>
 
-  <!-- Sidebar -->
   <%= render "layouts/partials/sidebar" %>
 
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <%= render "layouts/partials/flash_messages" %>
-      <%= yield %>
+  <% if content_for?(:navigation) %>
+    <section class="navigation">
+      <%= yield(:navigation) %>
+    </section>
+  <% end %>
 
-    </div>
-  </div>
+  <section class="main">
+    <%= render "layouts/partials/flash_messages" %>
+    <%= yield %>
+  </section>
+
+  <% if content_for?(:ads) %>
+    <section class="ads">
+      <%= yield(:ads) %>
+    </section>
+  <% end %>
+
+  <section class="footer"></section>
 </div>
-
 
 </body>
 </html>

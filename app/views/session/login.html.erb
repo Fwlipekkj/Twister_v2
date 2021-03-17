@@ -1,36 +1,30 @@
-<!-- Modal -->
-<div class="modal fade" id="register_modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Faça login</h5>
-<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--          <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
-      </div>
-      <%= form_with model: @user, url: user_login_path, method: :post, html: {class: ""} do |form| %>
-        <div class="modal-body">
-          <div class="form-group">
-            <%= form.text_field :email, class: "form-control #{bootstrap_form_error_class(form, :email)}", placeholder: "E-mail"  %>
-            <%= bootstrap_form_errors(form, :email) %>
-          </div>
-          <div class="form-group">
-            <%= form.password_field :password, class: "form-control #{bootstrap_form_error_class(form, :password)}", placeholder: "Senha" %>
-          </div>
-          <div class="form-group">
-            <a href="<%= forgot_password_path %>">Esqueci a minha senha</a>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <%= link_to "Cadastre-se aqui", user_register_path, class: "btn btn-link" %>
-          <%= form.submit "Entrar", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title"><strong>Login</strong></h4>
   </div>
+
+  <%= form_with model: @user, url: user_login_path, method: :post, html: {class: ""} do |form| %>
+    <div class="card-body">
+      <div class="form-group">
+        <%= form.text_field :email, class: "form-control #{bootstrap_form_error_class(form, :email)}", placeholder: "E-mail"  %>
+        <%= bootstrap_form_errors(form, :email) %>
+      </div>
+      <div class="form-group">
+        <%= form.password_field :password, class: "form-control #{bootstrap_form_error_class(form, :password)}", placeholder: "Senha" %>
+      </div>
+      <div class="form-group text-right">
+        <%= link_to "Esqueci minha senha", forgot_password_path %>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-end">
+        <%= form.submit "Entrar", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-<script type="application/javascript">
-  $(document).ready(function(){
-    $("#register_modal").modal("toggle")
-  })
-</script>
+
+<% content_for(:after_content) do %>
+  Não tem conta ainda?
+  <%= link_to "Crie sua conta aqui", user_register_path, class: "btn btn-link" %>
+<% end %>
