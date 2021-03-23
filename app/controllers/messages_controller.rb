@@ -1,11 +1,10 @@
 class MessagesController < ApplicationController
   before_action :set_chat, only: %i[ create ]
   before_action :set_message, only: %i[ update edit destroy show ]
-  before_action :authorize_message, except: %i[ create ]
 
   def create
     @message = @chat.messages.new(message_params)
-    @message.author = current_user
+    @message.user = current_user
 
     if @message.save
       render turbo_stream: turbo_stream.append(:messages, @message)
@@ -34,16 +33,12 @@ class MessagesController < ApplicationController
 
   private
 
-  def set_room
-    @room = Room.find(params[:room_id])
+  def set_chat
+    @chat = Chat.find(params[:chat_id])
   end
 
   def set_message
     @message = Message.find(params[:id])
-  end
-
-  def authorize_message
-    authorize @message
   end
 
   def message_params

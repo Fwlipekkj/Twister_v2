@@ -1,0 +1,27 @@
+<%= form_with model: message.persisted? ? message : [message.chat, message],
+              class: 'd-flex justify-content-between',
+              data: {
+                  controller: 'form',
+                  action: 'turbo:submit-end->form#resetForm' } do |f| %>
+
+  <%= f.text_field :content, class: 'publisher-input', placeholder: "Digite sua mensagem",
+                   required: true, autocomplete: 'off', autofocus: true  %>
+
+  <div>
+    <span class="publisher-btn file-group">
+      <i class="fa fa-paperclip file-browser"></i>
+      <input type="file">
+    </span>
+
+    <a class="publisher-btn" href="#" data-abc="true">
+      <i class="fa fa-smile"></i>
+    </a>
+
+    <%#= link_to 'Cancel', @message, class: 'btn btn-sm btn-outline-secondary' %>
+    <%= button_tag type: :submit, class: 'publisher-btn text-info', data: {abc: true} do %>
+      <i class="fa fa-paper-plane"></i>
+    <% end %>
+  </div>
+
+
+<% end %>

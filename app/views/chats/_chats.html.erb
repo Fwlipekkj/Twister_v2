@@ -2,8 +2,8 @@
   <% @chats.each do |chat| %>
   <li class="person active-user" data-chat="<%= chat.id %>">
     <div class="user">
-      <img src="https://loremflickr.com/54/54/face/all" alt="<%= chat_another_member(chat).name %>">
-      <span class="status <%= chat_another_member_status(chat) %>"></span>
+      <img src="https://loremflickr.com/54/54/face/all" alt="<%= participant(chat).name %>">
+      <span class="status <%= participant_status(chat) %>"></span>
     </div>
     <p class="name-time">
       <span class="name"></span>

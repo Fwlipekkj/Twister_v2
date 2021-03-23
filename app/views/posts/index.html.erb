@@ -1,3 +1,7 @@
+<% content_for(:navigation) do %>
+  kjfhsdjfhsdjfhskdjhfkjdshfkjdshfjsdhfjkdshfksdjhfkdsjhfsdjhf
+<% end %>
+
 <%= form_for :post, url: posts_path, method: :post, html: {class: "mb-5"}, multipart: true do |form| %>
   <div class="form-group">
     <%= form.text_area :message, class: "form-control", placeholder: "O que você está pensando?" %>
@@ -20,3 +24,5 @@
     <%== pagy_nav @pagy %>
   </div>
 </div>
+
+

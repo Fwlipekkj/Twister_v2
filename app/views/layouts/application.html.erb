@@ -10,19 +10,20 @@
   <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 
-<body>
+
+<body data-current-user-id="<%= current_user&.id %>">
 
 <div class="grid wrapper">
 
   <%= render "layouts/partials/topbar" %>
-
-  <%= render "layouts/partials/sidebar" %>
 
   <% if content_for?(:navigation) %>
     <section class="navigation">
       <%= yield(:navigation) %>
     </section>
   <% end %>
+
+  <%= render "layouts/partials/sidebar" %>
 
   <section class="main">
     <%= render "layouts/partials/flash_messages" %>

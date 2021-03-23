@@ -1,0 +1,7 @@
+<%= turbo_frame_tag dom_id(@message) do %>
+
+  <div data-controller='scroll-into-view' class='py-2'>
+    <%= render 'form', message: @message %>
+  </div>
+
+<% end %>
